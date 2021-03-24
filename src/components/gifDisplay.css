@@ -1,0 +1,30 @@
+.input{
+    background-color: rgb(71, 163, 163);
+    border:0px;
+    width: 500px;
+    height: 42px;
+    padding: 0 20px;
+    margin: 10px;
+    font-size:18px;
+    border-radius: 10px;
+    color: rgb(240, 240, 240);
+  }
+.input::placeholder{
+    color: bisque;
+  }
+.button{
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    border: 0;
+    background: rgb(192, 33, 5);
+    cursor: pointer;
+    font-weight: bolder;
+    color: bisque;
+  }
+  .image{
+        width:21pc;
+        margin:0.5pc;
+        border:2px solid black; 
+        border-radius:2.5px
+  }

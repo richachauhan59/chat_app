@@ -1,44 +1,58 @@
 import React, {useState} from "react";
 import { searchGif } from "./gifData";
+import './gifDisplay.css'
 
 
 
 const Gif = () => {
   
 const [data, setData] = useState([])
+const [query, setQuery] = useState("default")
 
-const res = searchGif("happy");
+const search = (e) => {
+  const res = searchGif(query);
 // console.log(res, "richa");
-res.then(function(result) {
-    setData(result.data)
-    console.log(result.data)
-})
+  res.then((result) => {
+      setData(result.data)
+      console.log(result.data)
+  })
+}
+
 
   return (
     <>
-      {/* <Instructions /> */}
       <div className="filters">
-        <div className="form-group">
-          <input type="text" placeholder="Search Gif" />
-          <button>Search</button>
-          <button>-</button>
+        <div 
+          style={{
+            textAlign:"center",
+            margin:"20px"
+          }}
+        >
+          <input 
+            className="input"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            type="text" 
+            placeholder="Search Gif" 
+          />
+          <button className="button" onClick={search} >Search</button>
+          {/* <button>-</button>
           <span> 0 </span>
-          <button>+</button>
+          <button>+</button> */}
         </div>
       </div>
-      <div>Gifs goes here</div>
-      <div  style={{
-                display:"flex", flexWrap:"wrap"
-            }}>
+      <div  
+          style={{
+              display:"flex", flexWrap:"wrap"
+          }}
+      >
         {
-            data.map(item => (
-                    <img 
-                    style={{
-                        width:"20pc", margin:"0.8pc", border:"2px solid black", borderRadius:"4px"
-                    }} 
-                    src={item.images.downsized.url} alt="img"
-                     />
-            ))
+          data.map(item => (
+                  <img 
+                  className="image"
+                  src={item.images.downsized.url} alt="img"
+                  />
+          ))
         }
       </div>
     </>
